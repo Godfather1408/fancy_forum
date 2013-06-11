@@ -1,0 +1,17 @@
+<table>
+  <tr>
+	<th class="text-left span1">ID</th>
+    <th class="text-left span2">Title</th>
+    <th class="text-left span3">Description</th>
+    <th class="text-right span1">Number of Posts</th>
+  </tr>
+
+<% topic.each do |top| %>
+  <tr>
+	<td><%= top.id %></td>
+    <td><%= top.title %></td>
+    <td><%= top.description %></td>
+    <td class="text-right">""<%=  %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,5 +1,7 @@
 <% if topics.count < 1 %>
 	<%= render "admin", :name => "topics" %>
 <% else %>
-
+	</br>
+	<h3>Important Topics</h3>
+	<%= render "shared/topics", :topic => @topics %>
 <% end %>
