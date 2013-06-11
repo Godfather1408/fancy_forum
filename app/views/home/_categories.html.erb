@@ -1,0 +1,20 @@
+<% if categories.count < 1 %>
+	<%= render "admin", :name => "categories" %>
+<% else %>
+	<table class="table-striped">
+  		<tr>
+			<th class="text-left span1">ID</th>
+    		<th class="text-left span3">Title</th>
+    		<th class="text-left span3">Description</th>
+    		<th class="text-right span1">Number of Topics</th>
+  	   </tr>
+		<% categories.each do |cat| %>
+	    <tr>
+		  <td><%= cat.id %></td>
+	      <td><%= cat.title %></td>
+	      <td><%= cat.description %></td>
+		  <td class="text-right"><%= cat.topics.count %></td>
+	    </tr>
+		<% end %>
+	</table>
+<% end %>
