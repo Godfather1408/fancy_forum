@@ -1,5 +1,11 @@
 FancyForum::Application.routes.draw do
   
+  resources :topics
+
+
+  resources :categories
+
+
   root :to => 'home#index'
   get "home/index"
 
