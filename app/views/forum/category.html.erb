@@ -1,3 +1,3 @@
-<div><%= render "shared/breadcrumbs" , :activ => @category, :category => nil %></div>
-<h1>Forum#category</h1>
-<p>Find me in app/views/forum/category.html.erb</p>
+<div><%= render "shared/breadcrumbs" , :activ => @cat, :category => nil %></div>
+<h1><%= @cat %></h1>
+<%= render "shared/topics", :topics => @category.topics %>
