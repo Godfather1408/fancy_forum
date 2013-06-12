@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   
   has_many :posts
   
-  has_attached_file :avatar, :styles => { :small => "50x50", :medium => "150x150>"}
+  has_attached_file :avatar, :styles => { :small => "50x50", :medium => "150x150>"},
+                    :default_url => '/assets/missing_:style.png'
 end
