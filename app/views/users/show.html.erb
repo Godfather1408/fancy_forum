@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @user.avatar.url(:medium) %>
+</p>
+<p>
   <b>Username:</b>
   <%= @user.username %>
 </p>
@@ -8,10 +11,13 @@
   <b>First name:</b>
   <%= @user.first_name %>
 </p>
-
 <p>
   <b>Last name:</b>
   <%= @user.last_name %>
+</p>
+<p>
+  <b>Member since:</b>
+  <%= @user.created_at.strftime("%F") %>
 </p>
 
 <%= link_to 'Back', users_path %>
