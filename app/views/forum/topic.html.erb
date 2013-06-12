@@ -1,3 +1,18 @@
 <div><%= render "shared/breadcrumbs" , :activ => @topic.title, :category => @topic.category %></div>
-<h1>Forum#topic</h1>
-<p>Find me in app/views/forum/topic.html.erb</p>
+<h1><%= @topic.title %></h1>
+</br>
+<table class="table table-bordered">
+	<% posts.each do |post| %>
+	<tr>
+		<th class="text-left span3 container-fluid filler">Post #<%= " "%></th>
+		<th class="span7 container-fluid filler"> </th>
+	</tr>
+	<tr>
+		<td>
+			<%= render "postinfo", :username => post.user.username, :date => post.created_at %>
+		</td>
+		<td><%= post.content %></td>
+	</tr>
+	<% end %>
+	
+</table>
