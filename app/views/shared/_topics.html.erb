@@ -11,7 +11,7 @@
 	<td><%= top.id %></td>
     <td><%= link_to top.title, forum_topic_path(:id => top.id) %></td>
     <td><%= top.description %></td>
-    <td class="text-right">""<%=  %></td>
+    <td class="text-right"><%= top.posts.count %></td>
   </tr>
 <% end %>
 </table>
