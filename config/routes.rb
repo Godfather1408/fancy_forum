@@ -1,6 +1,8 @@
 FancyForum::Application.routes.draw do
   
-  resources :topics
+  devise_for :users
+
+  resources :topics, :users
 
 
   resources :categories
