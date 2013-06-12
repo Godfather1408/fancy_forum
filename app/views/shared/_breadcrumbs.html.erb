@@ -1,0 +1,13 @@
+<ul class="breadcrumb">
+	
+  <% if activ %>
+  	<li><%= link_to "FancyForum", root_url %> <span class="divider">/</span></li>
+  <% else %>
+  	<li class="active">FancyForum</li>
+  <% end %>
+  
+  <% if category %>
+  	<li><%= link_to category.title, category %> <span class="divider">/</span></li>
+  <% end %>
+  <li class="active"><%= activ %></li>
+</ul>
