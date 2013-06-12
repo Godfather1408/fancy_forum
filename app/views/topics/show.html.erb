@@ -1,20 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @topic.title %>
-</p>
+<div class="hero-unit container-fluid filler">
+	<div class="span5">
+		<p>
+  			<b>Title:</b>
+  			<%= @topic.title %>
+		</p>
 
-<p>
-  <b>Description:</b>
-  <%= @topic.description %>
-</p>
+		<p>
+  			<b>Description:</b>
+  			<%= @topic.description %>
+		</p>
 
-<p>
-  <b>Category:</b>
-  <%= @topic.category_id %>
-</p>
+		<p>
+  			<b>CategoryID:</b>
+  			<%= @topic.category_id %>
+		</p>
 
+		<p>
+  			<b>Category title:</b>
+  			<%= @topic.category.title %>
+		</p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+		<p>
+  			<b>Number of posts:</b>
+  			<%= "##" %>
+		</p>
+		
+		<%= link_to 'Edit', edit_topic_path(@topic), :class => "btn betn-small" %> 
+		<%= link_to 'Back', topics_path, :class => "btn betn-small" %>
+	</div>
+	<div class="span5">
+		<p>
+  			<b>Number of followers:</b>
+  			<%= "##" %>
+		</p>
+
+		<p>
+  			<b>Followers:</b>
+  			<%= "tabelle" %>
+		</p>
+	</div>
+</div>
