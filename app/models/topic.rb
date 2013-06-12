@@ -4,4 +4,6 @@ class Topic < ActiveRecord::Base
   scope :important, where(:important => true)
   
   belongs_to :category
+  
+  has_many :posts
 end
