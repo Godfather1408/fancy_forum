@@ -1,5 +1,7 @@
 FancyForum::Application.routes.draw do
   
+  get "forum/topic"
+
   devise_for :users
 
   resources :topics, :users

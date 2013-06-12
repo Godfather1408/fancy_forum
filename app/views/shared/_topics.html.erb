@@ -6,10 +6,10 @@
     <th class="text-right span1">Number of Posts</th>
   </tr>
 
-<% topic.each do |top| %>
+<% topics.each do |top| %>
   <tr>
 	<td><%= top.id %></td>
-    <td><%= top.title %></td>
+    <td><%= link_to top.title, forum_topic_path(:id => top.id) %></td>
     <td><%= top.description %></td>
     <td class="text-right">""<%=  %></td>
   </tr>
