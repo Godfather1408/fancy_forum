@@ -1,6 +1,7 @@
 class ForumController < ApplicationController
   def topic
     @topic = Topic.find(params[:id])
+    @post = Post.new
   end
   
   def category

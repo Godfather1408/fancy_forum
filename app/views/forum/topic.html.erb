@@ -14,5 +14,6 @@
 		<td><%= post.content %></td>
 	</tr>
 	<% end %>
-	
 </table>
+<%= will_paginate posts, :renderer => BootstrapPagination::Rails %>
+<%= render "inputfield" %>
