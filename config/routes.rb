@@ -4,6 +4,7 @@ FancyForum::Application.routes.draw do
 
 
   get "forum/topic"
+  get "forum/category"
 
   devise_for :users
 

@@ -7,7 +7,7 @@
   <% end %>
   
   <% if category %>
-  	<li><%= link_to category.title, category %> <span class="divider">/</span></li>
+  	<li><%= link_to category.title, forum_category_path(:id => category.id) %> <span class="divider">/</span></li>
   <% end %>
   <li class="active"><%= activ %></li>
 </ul>

@@ -12,7 +12,7 @@
 		<% categories.each do |cat| %>
 	    <tr>
 		  <td><%= cat.id %></td>
-	      <td><%= cat.title %></td>
+	      <td><%= link_to cat.title, forum_category_path(:id => cat.id) %></td>
 	      <td><%= cat.description %></td>
 		  <td class="text-right"><%= cat.topics.count %></td>
 	    </tr>
