@@ -2,14 +2,15 @@ FancyForum::Application.routes.draw do
   
   devise_for :users
 
-  resources :topics, :users
+  resources :topics, :users, :only => [:index, :show]
 
 
   resources :categories
 
 
   root :to => 'home#index'
-  get "home/index"
+  
+  match "users/:id/edit" => redirect("/users/edit")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
