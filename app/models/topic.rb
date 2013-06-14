@@ -13,6 +13,7 @@
 
 class Topic < ActiveRecord::Base
   attr_accessible :category_id, :description, :title, :posts_attributes
+  attr_accessible :important, :as => [:default, :admin] #kann man das oben dabei schreiben
   
   scope :important, where(:important => true)
   
