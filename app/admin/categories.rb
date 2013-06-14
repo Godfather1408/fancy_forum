@@ -8,7 +8,10 @@ ActiveAdmin.register Category do
     end
     column :description
     column :created_at
-    column :updated_at
     default_actions
   end
+  
+  filter :title
+  filter :description
+  filter :created_at
 end
