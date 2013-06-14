@@ -7,6 +7,6 @@ class ForumController < ApplicationController
   def category
     @category = Category.find(params[:id])
     @topics = @category.topics
-    @cat = @category.title
+    @cat_title = @category.title
   end
 end

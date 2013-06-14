@@ -19,10 +19,16 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.number_field :category_id %>
-  </div>
+  
+  <% if cat_id %>
+  	<%= f.hidden_field :category_id, :value => cat_id %>
+  <% else %>
+  	<div class="field">
+    	<%= f.label :category_id %><br />
+    	<%= f.number_field :category_id %>
+  	</div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

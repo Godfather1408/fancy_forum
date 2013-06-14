@@ -1,5 +1,5 @@
-<div><%= render "shared/breadcrumbs" , :activ => @cat, :category => nil %></div>
-<h1><%= @cat %></h1>
+<div><%= render "shared/breadcrumbs" , :activ => @cat_title, :category => nil %></div>
+<h1><%= @cat_title %></h1>
 <%= render "shared/topics", :topics => @category.topics %>
 </br>
-<%= link_to 'New Topic', new_topic_path, :class => "btn btn-primary"%>
+<%= link_to 'New Topic', new_topic_path(:cat_id => @category.id), :class => "btn btn-primary"%>
