@@ -11,6 +11,8 @@ gem 'will_paginate-bootstrap'
 gem 'devise'
 gem 'paperclip'
 gem 'activeadmin'
+gem 'meta_search'
+gem 'annotate'
 
 # Gems used only for assets and not required
 # in production environments by default.
