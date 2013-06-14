@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'mysql2'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
 # Gems added by us
 gem 'twitter-bootstrap-rails'
@@ -10,6 +10,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'devise'
 gem 'paperclip'
+gem 'activeadmin'
 
 # Gems used only for assets and not required
 # in production environments by default.
