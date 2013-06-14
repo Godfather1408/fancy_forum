@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'activeadmin'
 gem 'meta_search'
 gem 'annotate'
+gem 'turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.
