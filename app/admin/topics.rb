@@ -10,7 +10,7 @@ ActiveAdmin.register Topic do
     column :category
     column :important
     column :created_at
-    column :updated_at
+    column :number_of_posts
     default_actions
   end  
  

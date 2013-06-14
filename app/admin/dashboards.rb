@@ -24,10 +24,10 @@ ActiveAdmin::Dashboards.build do
   
   section "Recent Posts" do
     table_for Post.order("created_at desc").limit(5) do
-      column :title do |post|
+      column :id do |post|
         link_to post.id, admin_post_path(post)
       end
-      column :created_at
+      column :updated_at
       column :user
       column :topic
     end
