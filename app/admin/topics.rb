@@ -13,4 +13,9 @@ ActiveAdmin.register Topic do
     column :updated_at
     default_actions
   end  
+ 
+  filter :category
+  filter :title
+  filter :important, :as => :select, :collection => ["true", "false"]
+  filter :created_at  
 end

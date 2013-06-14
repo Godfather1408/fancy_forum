@@ -12,4 +12,9 @@ ActiveAdmin.register Post do
     column :updated_at
     default_actions
   end   
+  
+  filter :topic
+  filter :user
+  filter :created_at
+  filter :updated_at
 end

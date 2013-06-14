@@ -13,5 +13,23 @@ ActiveAdmin.register User do
     column :created_at
     column :number_of_posts
     default_actions
-  end  
+  end
+  
+  form do |f|
+    f.inputs "User Details" do
+      f.input :username
+      f.input :first_name
+      f.input :last_name
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.buttons
+  end
+  
+  filter :username
+  filter :first_name 
+  filter :last_name
+  filter :email
+  filter :created_at
 end
