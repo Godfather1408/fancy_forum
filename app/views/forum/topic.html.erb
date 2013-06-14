@@ -7,11 +7,11 @@
 	<tr>
 		<th class="text-left span3 container-fluid filler">Post #<%= postnumber %></th>
 		<% postnumber = postnumber + 1 %>
-		<th class="span7 container-fluid filler"> </th>
+		<td class="text-left span7 container-fluid filler"> <div class="text-right"><%= post.created_at %></div></td>
 	</tr>
 	<tr>
 		<td>
-			<%= render "postinfo", :username => post.user.username, :date => post.created_at %>
+			<%= render "postinfo", :user => post.user %>
 		</td>
 		<td><%= post.content %></td>
 	</tr>
