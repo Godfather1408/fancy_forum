@@ -6997,3 +6997,6 @@ label {
 .affix {
   position: fixed;
 }
+.small-letter{
+	font-size: 8pt;
+}

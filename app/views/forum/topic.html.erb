@@ -1,23 +1,31 @@
 <div><%= render "shared/breadcrumbs" , :activ => @topic.title, :category => @topic.category %></div>
 <h1><%= @topic.title %></h1>
 </br>
+
+<% postnumber = 1 %>
+
 <table class="table table-bordered">
-	<% postnumber = 1 %>
+	
 	<% posts.each do |post| %>
-	<tr>
-		<th class="text-left span3 container-fluid filler">Post #<%= postnumber %></th>
+	
+		<%= render "postheader", :post => post, :postnumber => postnumber %>
 		<% postnumber = postnumber + 1 %>
-		<td class="text-left span7 container-fluid filler"> <div class="text-right"><%= post.created_at %></div></td>
-	</tr>
-	<tr>
-		<td>
-			<%= render "postinfo", :user => post.user %>
-		</td>
-		<td><%= post.content %></td>
-	</tr>
+	
+		<tr>
+			<td>
+				<%= render "postinfo", :user => post.user %>
+			</td>
+			<td><%= post.content %></td>
+		</tr>
+	
+		<%= render "postcontrol", :post => post %>
+	
 	<% end %>
+	
 </table>
+
 <%= will_paginate posts, :renderer => BootstrapPagination::Rails %>
+
 <% if user_signed_in? %>
 	<%= render "inputfield" %>
 <% else %>
