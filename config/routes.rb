@@ -12,10 +12,10 @@ FancyForum::Application.routes.draw do
 
   devise_for :users
 
-  resources :topics, :users, :only => [:index, :show]
+  resources  :users, :only => [:index, :show]
 
 
-  resources :categories
+  resources :categories, :topics
 
 
   root :to => 'home#index'
