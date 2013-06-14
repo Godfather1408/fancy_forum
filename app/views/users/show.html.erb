@@ -1,23 +1,32 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @user.username %>'s profile</h1>
 
-<p>
-  <%= image_tag @user.avatar.url(:large) %>
-</p>
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
-<p>
-  <b>Member since:</b>
-  <%= @user.created_at.strftime("%F") %>
-</p>
+<div class="thumbnail">
+	<div class="pull-left small-padding">
+	  	  <%= image_tag @user.avatar.url(:large) %>
+	</div>
 
+	<div>
+		<p>
+	  	  <b>Username:</b>
+	  	  <%= @user.username %>
+		</p>
+		<p>
+	  	  <b>First name:</b>
+	  	  <%= @user.first_name %>
+		</p>
+		<p>
+	  	  <b>Last name:</b>
+	  	  <%= @user.last_name %>
+		</p>
+		<p>
+	  	  <b>Member since:</b>
+	  	  <%= @user.created_at.strftime("%F") %>
+		</p>
+		<p>
+	  	  <b>Posts:</b>
+	  	  <%= @user.posts.count %>
+		</p>
+	</div>
+</div>
 <%= link_to 'Back', users_path %>

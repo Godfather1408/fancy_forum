@@ -1,5 +1,5 @@
 <div class="text-center"><img src= <%= user.avatar.url(:medium) %>></img></div>
 <p class="text-center">
 User:</br>
-<%= user.username %>
+<%= link_to "#{user.username}", user %>
 </p>
