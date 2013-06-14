@@ -6,7 +6,7 @@
 		<% end %>
 	</td>
 	<td>
-		<% if current_user.id == post.user.id && last_post_from_user?(post) %>
+		<% if user_signed_in? && current_user.id == post.user.id && last_post_from_user?(post) %>
 			<div class="text-right"><%= link_to "edit", edit_post_path(post) %></div>
 		<% end %>
 	</td>
