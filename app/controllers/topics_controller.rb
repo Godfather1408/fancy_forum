@@ -25,7 +25,10 @@ class TopicsController < ApplicationController
   # GET /topics/new.json
   def new
     @topic = Topic.new
-
+    1.times do
+        post = @topic.posts.build
+      end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @topic }

@@ -12,13 +12,15 @@
 #
 
 class Topic < ActiveRecord::Base
-  attr_accessible :category_id, :description, :title
+  attr_accessible :category_id, :description, :title, :posts_attributes
   
   scope :important, where(:important => true)
   
   belongs_to :category
   
   has_many :posts
+  
+  accepts_nested_attributes_for :posts, :reject_if => lambda { |a| a[:content].blank? }
   
   private  
   def number_of_posts

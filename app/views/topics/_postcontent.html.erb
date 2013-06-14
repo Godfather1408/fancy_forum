@@ -1,0 +1,5 @@
+<p>
+  <%= f.label :content, "Post content" %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+</p>

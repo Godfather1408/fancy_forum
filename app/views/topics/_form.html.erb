@@ -29,6 +29,10 @@
   	</div>
   <% end %>
   
+  <%= f.fields_for :posts do |builder| %>
+      <%= render "postcontent", :f => builder %>
+    <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
