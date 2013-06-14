@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class=>"span8 input-xxlarge" %>
   </div>
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_field :description, :class=>"span8 input-xxlarge" %>
   </div>
   
   <% if cat_id %>
@@ -28,11 +28,14 @@
     	<%= f.number_field :category_id %>
   	</div>
   <% end %>
-  
-  <%= f.fields_for :posts do |builder| %>
-      <%= render "postcontent", :f => builder %>
+
+  <div class="field">
+  	<%= f.fields_for :posts do |builder| %>
+    	  <%= render "postcontent", :f => builder %>
     <% end %>
+  </div>
   
+</br>
   <div class="actions">
     <%= f.submit %>
   </div>

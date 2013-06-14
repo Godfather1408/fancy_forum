@@ -1,5 +1,5 @@
 <p>
   <%= f.label :content, "Post content" %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, :class=>"span8 input-xxlarge" %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 </p>
