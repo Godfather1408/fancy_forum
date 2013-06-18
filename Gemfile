@@ -13,7 +13,7 @@ gem 'paperclip'
 gem 'activeadmin'
 gem 'meta_search'
 gem 'annotate'
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'breadcrumbs_on_rails'
 gem 'sunspot_rails'
 
