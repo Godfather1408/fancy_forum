@@ -1,5 +1,5 @@
-<form class="navbar-search">
-	<%= form_tag topics_path, :class => 'navbar-search', :method => :get do %>  
+<div class="navbar-search">
+	<%= form_tag users_path, :method => :get do %>  
 	    <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder=>"Search" %> 
 	<% end %>
-</form>
+</div>
