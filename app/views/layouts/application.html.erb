@@ -47,6 +47,8 @@
           <a class="brand" href="/"><%= image_tag "logo.png" %></a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
+              <li><%= link_to "Home", root_path  %></li>
+              <li><%= link_to "Users", users_path  %></li>
               <li data-no-turbolink><%= link_to "Admin page", admin_dashboard_path  %></li>
 		    </ul>
 			<ul class="nav pull-right">
@@ -64,9 +66,11 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header"><h5>Sidebar</h5></li>
-              <li><%= link_to "Profile", edit_user_registration_path  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Profile", user_path(current_user)  %></li>
+                <% end %>
+              <li><%= link_to "Link2", ""  %></li>
+              <li><%= link_to "Link3", ""  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
