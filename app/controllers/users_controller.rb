@@ -2,7 +2,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:search].present?
+      @search = Sunspot.search(User) do
+        fulltext params[:search]
+      end
+      @users = @search.results
+    else
+      @users = User.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

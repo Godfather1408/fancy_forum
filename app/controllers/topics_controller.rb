@@ -2,7 +2,15 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    if params[:search].present?
+      @topics = Sunspot.search(Topic) do
+        fulltext params[:search]
+      end
+      @users = @search.results
+    else
+      @topics = Topic.all
+    end
+    
 
     respond_to do |format|
       format.html # index.html.erb
