@@ -12,5 +12,7 @@
 class Category < ActiveRecord::Base
   attr_accessible :description, :title
   
-  has_many :topics
+  has_many :topics, :dependent => :destroy
+  
+  validates_presence_of :title, :description
 end

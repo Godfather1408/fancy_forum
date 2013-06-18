@@ -15,4 +15,6 @@ class Post < ActiveRecord::Base
   
   belongs_to :topic
   belongs_to :user
+  
+  validates_presence_of :content, :user_id, :topic_id
 end

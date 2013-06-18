@@ -17,9 +17,11 @@ class Topic < ActiveRecord::Base
   
   scope :important, where(:important => true)
   
+  validates_presence_of :title, :category_id
+  
   belongs_to :category
   
-  has_many :posts
+  has_many :posts, :dependent => :destroy
   
   accepts_nested_attributes_for :posts, :reject_if => lambda { |a| a[:content].blank? }
   
