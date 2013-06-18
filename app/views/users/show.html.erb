@@ -1,4 +1,4 @@
-<div><%= render "shared/breadcrumbs" , :activ => @user.username, :category => nil, :user => @user %></div>
+<%= render_breadcrumbs %>
 <p id="notice"><%= notice %></p>
 <h1><%= @user.username %>'s profile</h1>
 
@@ -34,4 +34,4 @@
 <% if current_user == @user %>
   <%= link_to 'Edit your profile', edit_user_registration_path , :class => "btn btn-primary" %>
 <% end %>
-<%= link_to 'Back', users_path, :class => "btn btn-inverse" %>
+<%= link_to 'Back', :back, :class => "btn btn-inverse" %>

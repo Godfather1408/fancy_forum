@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
+  
+  add_breadcrumb "Home", "/"
+  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+    add_breadcrumb "Users", users_path
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +18,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    add_breadcrumb "Users", users_path
+    add_breadcrumb @user.username, user_path(@user)
 
     respond_to do |format|
       format.html # show.html.erb

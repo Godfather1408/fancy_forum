@@ -14,6 +14,7 @@ gem 'activeadmin'
 gem 'meta_search'
 gem 'annotate'
 gem 'turbolinks'
+gem 'breadcrumbs_on_rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
