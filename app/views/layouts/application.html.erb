@@ -48,9 +48,9 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li data-no-turbolink><%= link_to "Admin page", admin_dashboard_path  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
 		    </ul>
 			<ul class="nav pull-right">
+				<li><%= render "layouts/search_field" %></li>
 				<%= render "shared/registration" %>
             </ul>
           </div><!--/.nav-collapse -->
