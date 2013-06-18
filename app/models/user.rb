@@ -38,6 +38,12 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => { :small => "50x50", :medium => "100x100>", :large => "150x150"},
                     :default_url => '/assets/missing_:style.png'
+  
+  searchable do
+      text :username, :boost => 3
+      text :first_name, :last_name
+  end
+  
   private  
   def number_of_posts
     self.posts.count
