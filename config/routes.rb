@@ -1,10 +1,13 @@
 FancyForum::Application.routes.draw do
   
+  #get "favorite/index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :posts
+  resources :favorites, :only => [:index, :destroy, :new, :create]
 
 
   get "forum/topic"
