@@ -16,3 +16,6 @@
 
 # Ignore redcar files
 .redcar
+
+/solr/data
+/solr/pids
