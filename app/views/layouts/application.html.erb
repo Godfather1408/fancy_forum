@@ -68,8 +68,8 @@
               <li class="nav-header"><h5>Sidebar</h5></li>
               <% if user_signed_in? %>
                 <li><%= link_to "Profile", user_path(current_user)  %></li>
+				<li><%= link_to "Favoriten", favorites_path  %></li>
                 <% end %>
-              <li><%= link_to "Link2", ""  %></li>
               <li><%= link_to "Link3", ""  %></li>
             </ul>
           </div><!--/.well -->

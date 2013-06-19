@@ -1,0 +1,12 @@
+<table class="table-striped">
+	<tr>
+		<th class="span4">Favorite</th>
+		<th class="span2"></th>
+	</tr>
+	<% @myfavorites.each do |mf| %>
+	<tr>
+		<td><%= link_to mf.topic.title, forum_topic_path(:id => mf.topic_id) %></td>
+		<td><%= link_to 'Delete', mf, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
+	</tr>
+	<% end %>
+</table>

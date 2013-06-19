@@ -22,6 +22,7 @@ class Topic < ActiveRecord::Base
   belongs_to :category
   
   has_many :posts, :dependent => :destroy
+  has_many :favorites
   
   accepts_nested_attributes_for :posts, :reject_if => lambda { |a| a[:content].blank? }
   
