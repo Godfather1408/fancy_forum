@@ -1,6 +1,6 @@
 <h1>Editing topic</h1>
 
-<%= render 'form' %>
+<%= render 'form', :cat_id => params[:cat_id] %>
 
 <%= link_to 'Show', @topic %> |
 <%= link_to 'Back', topics_path %>
