@@ -1,0 +1,12 @@
+<% if params[:search].present? %>
+  <h1>Results for <%= params[:search] %></h1>
+  <ul class="unstyled">
+    <% @users.each do |user| %>
+      <li>
+        <%= link_to user.username, user %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+<h3>Bitte geben Sie ein wonach Sie suchen wollen.</h3>
+<% end %>

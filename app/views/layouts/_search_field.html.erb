@@ -1,5 +1,13 @@
 <div class="navbar-search">
-	<%= form_tag users_path, :method => :get do %>  
-	    <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder=>"Search" %> 
+	<%= form_tag search_index_path, :method => :get do %>  
+	    <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder=>"Search " %> 
 	<% end %>
 </div>
+
+<li class="dropdown">
+  <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Search for <b class="caret"></b></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li><a tabindex="-1" href="#">Users</a></li>
+    <li><a tabindex="-1" href="#">Topics</a></li>
+  </ul>
+</li>
