@@ -12,24 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :read %><br />
-    <%= f.check_box :read %>
+    <%= f.hidden_field :read, :value => false %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.label :adressee_id %><br />
+    <%= f.number_field :adressee_id %>
   </div>
   <div class="field">
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>
   <div class="field">
-    <%= f.label :sender_id %><br />
-    <%= f.number_field :sender_id %>
+    <%= f.hidden_field :sender_id, :value => current_user.id %>
   </div>
   <div class="field">
-    <%= f.label :adressee_id %><br />
-    <%= f.number_field :adressee_id %>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>

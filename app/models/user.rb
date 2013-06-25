@@ -36,11 +36,13 @@ class User < ActiveRecord::Base
   
   has_many :posts
   has_many :favorites
+  has_many :messages
   
   has_attached_file :avatar, :styles => { :small => "50x50", :medium => "100x100>", :large => "150x150"},
                     :default_url => '/assets/missing_:style.png'
   
   validates_presence_of :email, :last_name, :first_name, :username
+  validates_uniqueness_of :username
   
   def favorite?(topic_id)
      if favorites.where(:topic_id => topic_id).count == 0 

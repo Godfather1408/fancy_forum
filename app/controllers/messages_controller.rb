@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.where(:adressee_id => current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
