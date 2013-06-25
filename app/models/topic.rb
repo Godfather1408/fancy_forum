@@ -21,10 +21,20 @@ class Topic < ActiveRecord::Base
   
   belongs_to :category
   
-  has_many :posts, :dependent => :destroy
-  has_many :favorites
+  has_many :posts
   
-  accepts_nested_attributes_for :posts, :reject_if => lambda { |a| a[:content].blank? }
+  accepts_nested_attributes_for :posts, :allow_destroy => false, :reject_if => proc {|attrs| attrs['content'].blank? }
+  
+  validate :must_have_one_post
+  
+  def must_have_one_post
+      errors.add(:posts, 'must have one post') if posts_empty?
+  end
+  def posts_empty?
+      posts.empty? or posts.all? {|post| post.marked_for_destruction? }
+  end
+  
+  has_many :favorites
   
   searchable do
     text :title

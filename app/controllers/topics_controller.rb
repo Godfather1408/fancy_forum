@@ -33,9 +33,9 @@ class TopicsController < ApplicationController
   # GET /topics/new.json
   def new
     @topic = Topic.new
-    1.times do
+    #1.times do
         post = @topic.posts.build
-      end
+    #  end
     
     respond_to do |format|
       format.html # new.html.erb
@@ -58,7 +58,7 @@ class TopicsController < ApplicationController
         format.html { redirect_to forum_topic_path(:id => @topic.id), notice: 'Topic was successfully created.' }
         format.json { render json: @topic, status: :created, location: @topic }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_topic_path(:cat_id => params[:topic][:category_id]), alert: "Topic was not created" }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
