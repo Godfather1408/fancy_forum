@@ -58,7 +58,7 @@ class TopicsController < ApplicationController
         format.html { redirect_to forum_topic_path(:id => @topic.id), notice: 'Topic was successfully created.' }
         format.json { render json: @topic, status: :created, location: @topic }
       else
-        format.html { redirect_to new_topic_path(:cat_id => params[:topic][:category_id]), alert: "Topic was not created" }
+        format.html { redirect_to new_topic_path(:cat_id => params[:topic][:category_id]), alert: "Topic was not created. Please fill in all forms." }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end

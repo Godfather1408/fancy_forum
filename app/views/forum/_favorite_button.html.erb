@@ -1,1 +1,3 @@
-<%= render "favorite" unless current_user.favorite?(@topic.id) %>
+<% if user_signed_in? %>
+    <%= render "favorite" unless current_user.favorite?(@topic.id) %>
+<% end %>
