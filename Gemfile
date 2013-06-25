@@ -15,7 +15,6 @@ gem 'meta_search'
 gem 'annotate'
 #gem 'turbolinks'
 gem 'breadcrumbs_on_rails'
-gem 'sunspot_rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,7 +30,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'letter_opener'
-  gem 'sunspot_solr'
 end
 
 group :development, :test do

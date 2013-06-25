@@ -26,10 +26,6 @@ class Topic < ActiveRecord::Base
   
   accepts_nested_attributes_for :posts, :reject_if => lambda { |a| a[:content].blank? }
   
-  searchable do
-    text :title
-  end
-  
   private  
   def number_of_posts
     self.posts.count

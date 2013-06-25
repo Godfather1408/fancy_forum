@@ -2,15 +2,11 @@ class SearchController < ApplicationController
   def index
     if params[:search].present?
       if true
-        @search = Sunspot.search(User) do
-          fulltext params[:search]
-        end
-        @users = @search.results
+        @search = User.search(params[:search])
+        @users = @search.all
       else
-        @search = Sunspot.search(Topic) do
-          fulltext params[:search]
-        end
-        @topics = @search.results
+        @search = Topic.search(params[:search])
+        @topics = @search.all
       end
     end
 
