@@ -42,11 +42,6 @@ class User < ActiveRecord::Base
   
   validates_presence_of :email, :last_name, :first_name, :username
   
-  searchable do
-      text :username, :boost => 3
-      text :first_name, :last_name
-  end
-  
   def favorite?(topic_id)
      if favorites.where(:topic_id => topic_id).count == 0 
       false

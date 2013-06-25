@@ -36,10 +36,6 @@ class Topic < ActiveRecord::Base
   
   has_many :favorites
   
-  searchable do
-    text :title
-  end
-  
   private  
   def number_of_posts
     self.posts.count
