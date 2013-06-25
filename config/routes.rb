@@ -1,5 +1,8 @@
 FancyForum::Application.routes.draw do
   
+  resources :messages, :only => [:index, :destroy, :new, :create]
+
+
   get "search/index"
   
   ActiveAdmin.routes(self)

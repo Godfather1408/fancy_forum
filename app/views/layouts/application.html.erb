@@ -67,10 +67,11 @@
             <ul class="nav nav-list">
               <li class="nav-header"><h5>Sidebar</h5></li>
               <% if user_signed_in? %>
-                <li><%= link_to "Profile", user_path(current_user)  %></li>
-				<li><%= link_to "Favoriten", favorites_path  %></li>
+                <li><%= link_to "Profile", user_path(current_user) %></li>
+				<li><%= link_to "Favoriten", favorites_path %></li>
+				<li><%= link_to "Private Messages", messages_path %></li>
                 <% end %>
-              <li><%= link_to "Link3", ""  %></li>
+              <li><%= link_to "Pong", "http://codeincomplete.com/posts/2011/5/14/javascript_pong/demo.html", :target => '_blank' %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
