@@ -1,7 +1,7 @@
 <div class="navbar-search">
-	<%= form_tag search_index_path, :method => :get do %>  
-	    <%= text_field_tag :search, params[:search], :class => 'search-query', :placeholder=>"Search " %> 
-	<% end %>
+  <%= search_form_for @q, :url => search_index_path do |f| %>
+    <%= f.text_field :username_or_first_name_or_last_name_start %>
+  <% end %>
 </div>
 
 <li class="dropdown">
