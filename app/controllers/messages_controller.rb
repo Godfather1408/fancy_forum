@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where(:user_id => current_user.id)
+    @messages = Message.where(:user_id => current_user.id).order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +14,8 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show
     @message = Message.find(params[:id])
+    @message.read = true
+    @message.save
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +46,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
         format.json { render json: @message, status: :created, location: @message }
       else
         format.html { render action: "new" }
