@@ -12,11 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.hidden_field :read, :value => false %>
-  </div>
-  <div class="field">
-    <%= f.label :adressee_id %><br />
-    <%= f.number_field :adressee_id %>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id , :value => params[:adressee] %>
   </div>
   <div class="field">
     <%= f.label :subject %><br />
@@ -30,6 +27,6 @@
     <%= f.text_area :content %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Send", :class => "btn btn-primary" %>
   </div>
 <% end %>
