@@ -44,6 +44,8 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :last_name, :first_name, :username
   validates_uniqueness_of :username
   
+  after_create :send_welcome_email
+  
   def favorite?(topic_id)
      if favorites.where(:topic_id => topic_id).count == 0 
       false
@@ -52,8 +54,16 @@ class User < ActiveRecord::Base
     end
   end
   
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
   private  
   def number_of_posts
     self.posts.count
+  end
+  
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
   end
 end
