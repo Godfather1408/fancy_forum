@@ -1,6 +1,6 @@
 FancyForum::Application.routes.draw do
   
-  resources :messages, :only => [:index, :destroy, :new, :create]
+  resources :messages, :only => [:index, :destroy, :new, :create, :show]
 
 
   get "search/index"

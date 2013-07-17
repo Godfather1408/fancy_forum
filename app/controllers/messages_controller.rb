@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where(:user_id => current_user.id)
+    @messages = Message.where(:user_id => current_user.id).order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +14,8 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show
     @message = Message.find(params[:id])
+    @message.read = true
+    @message.save
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,11 +42,13 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    params[:message][:user_id] = name_to_id(params[:message][:user_id])
+    
     @message = Message.new(params[:message])
-
+    
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
         format.json { render json: @message, status: :created, location: @message }
       else
         format.html { render action: "new" }
@@ -80,4 +84,12 @@ class MessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  #So kann man Nachrichten an einen User ueber den username schicken.
+  def name_to_id(name)
+    User.find_by_username(name).id
+  end
+  
 end

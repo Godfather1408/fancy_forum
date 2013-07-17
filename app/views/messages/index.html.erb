@@ -2,15 +2,15 @@
 
 <table class="table-striped">
   <tr>
-	<th class="span1">Sender</th>
-    <th class="span5">Subject</th>
-    <th class="span1">Date</th>
-    <th></th>
+	<th class="span1 text-left">Sender</th>
+    <th class="span4 text-left">Subject</th>
+    <th class="span2">Date</th>
+    <th class="span1"></th>
   </tr>
 
 <% @messages.each do |message| %>
   <tr>
-	<td><%= message.sender_id %></td>
+	<td><%= message.user.username %></td>
     <td><%= link_to message.subject, message %></td>
     <td><%= message.created_at %></td>
     <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
