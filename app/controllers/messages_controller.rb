@@ -42,8 +42,10 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    params[:message][:user_id] = name_to_id(params[:message][:user_id])
+    
     @message = Message.new(params[:message])
-
+    
     respond_to do |format|
       if @message.save
         format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
@@ -82,4 +84,12 @@ class MessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  #So kann man Nachrichten an einen User ueber den username schicken.
+  def name_to_id(name)
+    User.find_by_username(name).id
+  end
+  
 end
