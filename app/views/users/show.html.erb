@@ -34,6 +34,6 @@
 <% if current_user == @user %>
   <%= link_to 'Edit your profile', edit_user_registration_path , :class => "btn btn-primary" %>
 <% else %>
-	<%= link_to 'New Message', new_message_path(:adressee => @user.id), :class => "btn btn-primary" %>
+	<%= link_to 'New Message', new_message_path(:adressee => @user.username), :class => "btn btn-primary" %>
 <% end %>
 <%= link_to 'Back', :back, :class => "btn btn-inverse" %>
