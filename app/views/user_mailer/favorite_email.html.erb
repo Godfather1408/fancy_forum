@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Topic update in FancyForum</h1>
+    <p><%= @user.name %>,<br/></p>
+    <p>
+      your favorite topic "<%= @topic.title %>" has been
+      updated.<br/>
+    </p>
+    <p>
+      To view the updates, just click <%= link_to "here", forum_topic_url(:id => @topic.id) %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

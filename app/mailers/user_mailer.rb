@@ -3,7 +3,12 @@ class UserMailer < ActionMailer::Base
   
   def welcome_email(user)
     @user = user
-    @url = 'http://example.com/login'
     mail(to: @user.email, subject: 'Welcome to FancyForum')
+  end
+  
+  def favorite_email(user, topic)
+    @user = user
+    @topic = topic
+    mail(to: @user.email, subject: 'Favorite updated')
   end
 end
