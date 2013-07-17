@@ -17,4 +17,16 @@ class Post < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :content, :user_id
+  
+  after_create :send_favorite_email
+  
+  private
+  def send_favorite_email
+    favorites = Favorite.where(topic_id: topic_id)
+    favorites.each do |f|
+      user = User.find(f.user_id)
+      topic = Topic.find(topic_id)
+      UserMailer.favorite_email(user, topic).deliver
+    end
+  end
 end
