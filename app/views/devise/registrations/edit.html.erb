@@ -32,6 +32,9 @@
 <div><%= f.label :avatar %> <i>(<%= @user.avatar_file_name %>)</i><br />
   <%= f.file_field :avatar %></div>
 <br />
+<div><%= f.check_box :get_favorite_mail %> <%= f.label :get_favorite_mail %>
+</div>
+<br />
   <div><%= f.submit "Update" %></div>
 <% end %>
 

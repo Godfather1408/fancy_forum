@@ -25,8 +25,10 @@ class Post < ActiveRecord::Base
     favorites = Favorite.where(topic_id: topic_id)
     favorites.each do |f|
       user = User.find(f.user_id)
-      topic = Topic.find(topic_id)
-      UserMailer.favorite_email(user, topic).deliver
+      if user.get_favorite_mail
+        topic = Topic.find(topic_id)
+        UserMailer.favorite_email(user, topic).deliver
+      end
     end
   end
 end
