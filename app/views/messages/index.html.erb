@@ -11,7 +11,7 @@
 <% @messages.each do |message| %>
   <tr>
 	<td><%= message.user.username %></td>
-    <td><%= link_to message.subject, message %></td>
+    <td><%= link_to message.subject, message %>  <%= render 'badge', :message => message %></td>
     <td><%= message.created_at %></td>
     <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
   </tr>
