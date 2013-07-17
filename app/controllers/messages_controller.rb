@@ -42,7 +42,13 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    params[:message][:user_id] = name_to_id(params[:message][:user_id])
+    id =  name_to_id(params[:message][:user_id])
+    if( id != -1)
+      params[:message][:user_id] = name_to_id(params[:message][:user_id])
+    else
+      redirect_to new_message_path, alert: "Can't find user #{params[:message][:user_id]}"
+      return
+    end
     
     @message = Message.new(params[:message])
     
@@ -89,7 +95,12 @@ class MessagesController < ApplicationController
   
   #So kann man Nachrichten an einen User ueber den username schicken.
   def name_to_id(name)
-    User.find_by_username(name).id
+    user = User.find_by_username(name)
+    if user == nil
+      return -1
+    else
+      user.id
+    end
   end
   
 end
