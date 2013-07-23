@@ -12,5 +12,18 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before {@category = Category.new(title: "hello", description: "hup hup")}
+  
+  subject {@category}
+  
+  it { should respond_to(:title) }
+  it { should respond_to(:description) }
+  
+  it { should be_valid }
+  
+  describe "when title is not present" do
+    before { @category.title = " " }
+    it { should_not be_valid }
+  end
+  
 end

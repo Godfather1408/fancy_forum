@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FavoriteController do
+describe FavoritesController do
 
   describe "GET 'index'" do
     it "returns http success" do

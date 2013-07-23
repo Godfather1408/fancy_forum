@@ -14,5 +14,26 @@
 require 'spec_helper'
 
 describe Topic do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { 
+    @category = Category.new(title: "hello", description: "hup hup")
+    @topic = Topic.new(title: "Tiel yeah!!", description: "Einfach so", category_id: @category.id, important: true)
+  }
+    
+    subject { @topic }
+    it { should respond_to(:title) }
+    it { should respond_to(:description) }
+    it { should respond_to(:important) }
+    it { should respond_to(:category_id) }
+    
+    
+    describe "title is missing" do
+      before { @topic.title = " " }
+      it { should_not be_valid }
+    end
+    
+    describe "category_id is missing" do
+      before { @topic.category_id = " " }
+      it { should_not be_valid }
+    end
+
 end
