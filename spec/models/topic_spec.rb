@@ -16,7 +16,9 @@ require 'spec_helper'
 describe Topic do
   before { 
     @category = Category.new(title: "hello", description: "hup hup")
-    @topic = Topic.new(title: "Tiel yeah!!", description: "Einfach so", category_id: @category.id, important: true)
+    @user = User.new(email: "dh@test.de", last_name: "lname", first_name: "fname", username: "uname")
+    @topic = @category.topics.build(title: "Tiel yeah!!", description: "Einfach so")
+    @post = @topic.posts.build(content: "blubbbbb", user_id: @user.id)
   }
     
     subject { @topic }
@@ -25,6 +27,7 @@ describe Topic do
     it { should respond_to(:important) }
     it { should respond_to(:category_id) }
     
+    it { should be_valid }
     
     describe "title is missing" do
       before { @topic.title = " " }

@@ -27,5 +27,25 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before {
+    @user = User.new(email: "dh@test.de", firstname: "Hans", lastname: "Mustermann", username: "godfather", password: "moep", :password_confirmation: "moep")
+  }
+    
+    subject { @user }
+    it { should respond_to(:email) }
+    it { should respond_to(:firstname) }
+    it { should respond_to(:lastname) }
+    it { should respond_to(:username) }
+    
+    it { should be_valid }
+    
+    describe "email is missing" do
+      before { @user.email = " " }
+      it { should_not be_valid }
+    end
+    
+    describe "username is missing" do
+      before { @user.category_id = " " }
+      it { should_not be_valid }
+    end
 end
