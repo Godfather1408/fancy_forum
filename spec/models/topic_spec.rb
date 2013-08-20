@@ -15,25 +15,27 @@ require 'spec_helper'
 
 describe Topic do
   before { 
-    @category = Category.new(title: "hello", description: "hup hup")
-    @user = User.new(email: "dh@test.de", last_name: "lname", first_name: "fname", username: "uname")
-    @topic = @category.topics.build(title: "Tiel yeah!!", description: "Einfach so")
-    @post = @topic.posts.build(content: "blubbbbb", user_id: @user.id)
+    @category = Category.create(title: "hello", description: "hup hup")
+    @user = User.create!(email: "dh@test.de", first_name: "Hans", last_name: "Mustermann", username: "godfather", password: "moepmoep", password_confirmation: "moepmoep")
+    @post = Post.create!(content: "blubbbbb", user_id: @user.id)
+    @topic = Topic.new(title: "Tiel yeah!!", description: "Einfach so", category_id: @category.id)
+    @topic.posts << @post
+    @topic.save!
   }
-    
+
     subject { @topic }
     it { should respond_to(:title) }
     it { should respond_to(:description) }
     it { should respond_to(:important) }
     it { should respond_to(:category_id) }
-    
+
     it { should be_valid }
-    
+
     describe "title is missing" do
       before { @topic.title = " " }
       it { should_not be_valid }
     end
-    
+
     describe "category_id is missing" do
       before { @topic.category_id = " " }
       it { should_not be_valid }

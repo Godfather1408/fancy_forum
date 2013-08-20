@@ -28,24 +28,25 @@ require 'spec_helper'
 
 describe User do
   before {
-    @user = User.new(email: "dh@test.de", firstname: "Hans", lastname: "Mustermann", username: "godfather", password: "moep", :password_confirmation: "moep")
+    @user = User.new(email: "dh@test.de", first_name: "Hans", last_name: "Mustermann", username: "godfather", password: "moepmoep", password_confirmation: "moepmoep")
+    @user.save!
   }
-    
+
     subject { @user }
     it { should respond_to(:email) }
-    it { should respond_to(:firstname) }
-    it { should respond_to(:lastname) }
+    it { should respond_to(:first_name) }
+    it { should respond_to(:last_name) }
     it { should respond_to(:username) }
-    
+
     it { should be_valid }
-    
+
     describe "email is missing" do
       before { @user.email = " " }
       it { should_not be_valid }
     end
-    
+
     describe "username is missing" do
-      before { @user.category_id = " " }
+      before { @user.username = " " }
       it { should_not be_valid }
     end
 end
