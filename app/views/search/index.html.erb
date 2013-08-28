@@ -2,7 +2,7 @@
   <ul class="unstyled">
     <% @topics.each do |topic| %>
       <li>
-        <%= link_to topic.title, topic %>
+        <%= link_to topic.title, forum_topic_path(:id => topic.id) %>
       </li>
     <% end %>
   </ul>
