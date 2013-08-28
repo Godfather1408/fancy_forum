@@ -1,12 +1,8 @@
-<% if params[:q] %>
-  <h3>Bitte geben Sie ein wonach Sie suchen wollen.</h3>
-<% else %>
-  <h1>Search results</h1>
+<h1>Search results</h1>
   <ul class="unstyled">
-    <% @users.each do |user| %>
+    <% @topics.each do |topic| %>
       <li>
-        <%= link_to user.username, user %>
+        <%= link_to topic.title, topic %>
       </li>
     <% end %>
   </ul>
-<% end %>

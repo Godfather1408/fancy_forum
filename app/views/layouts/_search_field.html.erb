@@ -1,13 +1,5 @@
 <div class="navbar-search">
   <%= search_form_for @q, :url => search_index_path do |f| %>
-    <%= f.text_field :username_or_first_name_or_last_name_start %>
+    <%= f.text_field :title_cont, :placeholder => "Search for topics" %>
   <% end %>
 </div>
-
-<li class="dropdown">
-  <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Search for <b class="caret"></b></a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li><a tabindex="-1" href="#">Users</a></li>
-    <li><a tabindex="-1" href="#">Topics</a></li>
-  </ul>
-</li>

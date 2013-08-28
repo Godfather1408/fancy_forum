@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
   def index
-    @q = User.search(params[:q])
-    @users = @q.result(:distinct => true)
+    @qu = Topic.search(params[:q])
+    @topics = @qu.result(:distinct => true)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @users }
+      format.json { render json: @topics }
     end
   end
 end
