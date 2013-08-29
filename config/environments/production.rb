@@ -1,4 +1,6 @@
 FancyForum::Application.configure do
+  
+  config.assets.precompile += %w( active_admin.css active_admin.js)
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -50,6 +52,7 @@ FancyForum::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'http://fancyforum.de.a9sapp.eu' }
 
   # Enable threaded mode
   # config.threadsafe!

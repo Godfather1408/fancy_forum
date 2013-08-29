@@ -1,0 +1,14 @@
+---
+applications:
+- name: fancyforum
+  memory: 256M
+  instances: 1
+  host: fancyforum
+  domain: de.a9sapp.eu
+  path: .
+  services:
+    mysql-7d69b:
+      label: mysql
+      provider: core
+      version: '5.5'
+      plan: '100'
